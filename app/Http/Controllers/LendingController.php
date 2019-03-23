@@ -132,13 +132,16 @@ class LendingController extends Controller
 
     public function refund($id)
     {
+        $update = null;
         $lending = Lending::find($id);
         if(!$lending)
             return redirect()->back();
         
-        $date_finish = Carbon::now();
-        $lending->date_finish = $date_finish;
-        $update = $lending->save();
+        if(!$lending->date_finish){
+            $date_finish = Carbon::now();
+            $lending->date_finish = $date_finish;
+            $update = $lending->save();
+        }
 
         if ($update)
             return redirect()

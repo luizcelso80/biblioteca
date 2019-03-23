@@ -7,6 +7,14 @@
             <div class="card">
                 <div class="card-header">
                     {{ $title }}
+                    <div class="float-right">
+                        Status:
+                        @if(!$lending->date_finish)
+                        <strong>Não entregue</strong>
+                        @else
+                        <strong>Entregue</strong>
+                        @endif
+                    </div>
                 </div>
 
                 <div class="card-body">
@@ -44,7 +52,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            <a href="{{ url('refund', $lending->id) }}" type="button" class="btn btn-success">fecha</a>
+                            @if(!$lending->date_finish)
+                            <a href="{{ url('refund', $lending->id) }}" type="button" class="btn btn-success">Entregar</a>
+                            @endif
                         </div>
                     </div>
                 </div>
