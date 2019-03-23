@@ -149,7 +149,7 @@ class LendingController extends Controller
                         ->with('success', 'Atualizado com sucesso!');
         else
             return redirect()
-                        ->back()
-                        ->with('error', 'Falha ao atualizar!');
+                        ->route('lendings.index')
+                        ->with('error', 'Malandraoooooooo');
     }
 }

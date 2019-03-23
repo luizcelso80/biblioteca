@@ -33,7 +33,10 @@ class BookController extends Controller
 
         
 
+
+        
         $books = Book::paginate($this->totalPage);
+       
 
         return view('books.index', compact('books', 'title'));
     }
