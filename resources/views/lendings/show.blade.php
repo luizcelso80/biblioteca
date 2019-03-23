@@ -29,7 +29,7 @@
                                     <tr>
                                         <th>Nome</th>
                                         <th>Descrição</th>
-                                        <th>Autores</th>
+                                        <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -37,11 +37,14 @@
                                     <tr>
                                         <td>{{ $book->title }}</td>
                                         <td>{{ $book->description }}</td>
-                                        <td> ... </td>
+                                        <td>
+                                            
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                            <a href="{{ url('refund', $lending->id) }}" type="button" class="btn btn-success">fecha</a>
                         </div>
                     </div>
                 </div>

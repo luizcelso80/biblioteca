@@ -24,6 +24,12 @@ Route::resource('lendings', 'LendingController');
 Route::resource('authors', 'AuthorController');
 
 Route::get('books/addCart/{id}', 'BookController@addCart');
+Route::get('books/rmCart/{id}', 'BookController@rmCart');
 //Route::get('books/openCart', 'BookController@openCart')->name('openCart');
 Route::get('carrinho', 'BookController@openCart');
 Route::get('lend', 'LendingController@lending')->name('lend');
+Route::get('refund/{id}', 'LendingController@refund')->name('refund');
+
+
+
+

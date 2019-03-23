@@ -186,6 +186,31 @@ class BookController extends Controller
         return redirect()->back();
     }
 
+    public function rmCart($id)
+    {
+        if (session()->has('cart')){
+            if(in_array($id, session('cart'))){
+                //dd(session('cart'));
+                $key = array_search($id, session('cart'));
+                $teste = session()->pull('cart', []);
+                //dd(session('cart')[$key]);
+                dd($teste);
+                $cart = session()->pull('cart');
+                unset($cart[$key]);
+                //session()->pull('cart', []);
+                session(['cart' => $cart]);
+
+                
+            }
+
+        }
+
+        
+
+        
+        return redirect()->back();
+    }
+
     public function openCart()
     {
         $books_cart = null;

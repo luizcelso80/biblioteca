@@ -19,7 +19,10 @@
                 		@if(isset($books_cart))
                 	   @foreach($books_cart as $book_cart)
                 	   <li class="list-group-item">
-                	      {{ $book_cart->title }}       
+                	      {{ $book_cart->title }}
+                          <div class="float-right p-1">
+                              <a href="{{ url('books/rmCart', $book_cart->id) }}" type="button" class="btn btn-danger">X</a>
+                          </div>       
                 	   </li>
                 	   @endforeach
                 	   @else

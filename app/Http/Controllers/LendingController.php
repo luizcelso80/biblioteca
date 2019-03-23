@@ -124,8 +124,29 @@ class LendingController extends Controller
             $lending->save();
             $lending->books()->attach(session('cart'));
             session()->forget('cart');
+            return redirect()->back();
             
 
         }
+    }
+
+    public function refund($id)
+    {
+        $lending = Lending::find($id);
+        if(!$lending)
+            return redirect()->back();
+        
+        $date_finish = Carbon::now();
+        $lending->date_finish = $date_finish;
+        $update = $lending->save();
+
+        if ($update)
+            return redirect()
+                        ->route('lendings.index')
+                        ->with('success', 'Atualizado com sucesso!');
+        else
+            return redirect()
+                        ->back()
+                        ->with('error', 'Falha ao atualizar!');
     }
 }

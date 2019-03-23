@@ -21,7 +21,7 @@
                         <textarea class="form-control" name="description" rows="3">{{ $book->description }}</textarea>
                     </div>
                     <div class="form-group">
-                        <select name="authors[]" class="custom-select" multiple size="3">
+                        <select name="authors[]" class="custom-select" multiple size="5">
                             @foreach($authors as $author)
                             <option value="{{ $author->id }}" {{ in_array($author->id, $authorsAttached) ? 'selected': '' }}>
                                 {{ $author->name }}
@@ -40,7 +40,7 @@
                             <textarea class="form-control" name="description" rows="3"></textarea>
                         </div>
                         <div class="form-group">
-                            <select name="authors[]" class="custom-select" multiple size="3">
+                            <select name="authors[]" class="custom-select" multiple size="5">
                                 @foreach($authors as $author)
                                 <option value="{{ $author->id }}">{{ $author->name }}</option>
                                 @endforeach
