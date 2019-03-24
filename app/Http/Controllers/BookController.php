@@ -31,12 +31,15 @@ class BookController extends Controller
     {
         $title = 'Cadastrar Novo Livro';
 
-        
+        $lended_books = Book::whereHas('lendings', function ($query) {
+            $query->where('date_finish', '=', null);
+        })->pluck('id')->all();
+        //dd($lend_books);
 
 
+        $books = Book::whereNotIn('id', $lended_books)->paginate($this->totalPage);
+        //$books = $books->forget($lend_books);
         
-        $books = Book::paginate($this->totalPage);
-       
 
         return view('books.index', compact('books', 'title'));
     }
