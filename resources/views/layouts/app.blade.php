@@ -78,7 +78,7 @@
                         @else
                             <li class="nav-item">
                                 <a href="{{ url('carrinho') }}" class="btn btn-primary">
-                                    <span class="oi oi-cart"></span>
+                                    <span class="glyphicon-shopping-cart"></span>
                                     Carrinho
                                     @if (session('cart'))
                                     <span class="badge badge-danger">{{ count(session('cart')) }}</span>
